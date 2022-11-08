@@ -10,7 +10,14 @@ const ServiceCard = ({ service }) => {
                 <figure><img src={image_url} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
-                    <p>{details}</p>
+                    <p>
+                        {
+                            details.length > 100 ?
+                            <p>{details.slice(0, 100) + "..."}</p>
+                            :
+                            <p>{details}</p>
+                        }
+                        </p>
                     <p className='font-bold'>price: ${price}</p>
                     <div className="card-actions justify-end">
                         <Link to={`/details/${_id}`}>

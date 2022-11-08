@@ -9,15 +9,16 @@ import Main from "../../Pages/Main/Main";
 const router = createBrowserRouter([
     {
         path: '/',
-        element:<Main></Main>,
-        children:[
+        element: <Main></Main>,
+        children: [
             {
                 path: '/',
                 element: <Home></Home>
             },
             {
                 path: '/details/:id',
-                element: <Details></Details>
+                element: <Details></Details>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: '/login',
