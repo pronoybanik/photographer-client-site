@@ -1,9 +1,9 @@
 import React from 'react';
 import img1 from '../../../image/1640112.webp';
 // import img1 from '../../../images/banner/1.jpg';
-import img2 from '../../../image/394069-photographer-photography-landscape-water-Sun-sunset-camera.jpg.crdownload';
+import img2 from '../../../image/download (3).jpeg';
 import img3 from '../../../image/wp4877950.jpg';
-import BannerItem from './BannerItem/BannerItem';
+import BannerItem from '../Bannar/BannerItem/BannerItem'
 import './Banner.css'
 
 const Banner = () => {

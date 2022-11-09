@@ -58,13 +58,13 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                {
-                        user?.photoURL?
-                        <>
-                         <img style={{height: '55px'}} className='mask mask-circle' src={user?.photoURL} alt="" />
-                        </>
-                        :
-                        <FaUser></FaUser>
+                    {
+                        user?.photoURL ?
+                            <>
+                                <img style={{ height: '55px' }} className='mask mask-circle' src={user?.photoURL} alt="" />
+                            </>
+                            :
+                            <FaUser></FaUser>
                     }
                 </div>
             </div>

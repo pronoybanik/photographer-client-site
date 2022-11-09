@@ -8,7 +8,6 @@ import { AuthContext } from '../../Pages/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { createUser, googleLogin } = useContext(AuthContext)
-    console.log('LOG', createUser, googleLogin);
     const provider = new GoogleAuthProvider();
 
     const handleSignUp = event => {

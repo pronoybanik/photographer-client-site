@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../../LoginSystem/Login/Login";
 import Register from "../../LoginSystem/Register/Register";
+import AddReviews from "../../Pages/AddReviwe/AddReviwe";
 import Details from "../../Pages/Details/Details";
 import Home from "../../Pages/Home/Home";
 import Main from "../../Pages/Main/Main";
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRouter><Details></Details></PrivateRouter>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -31,8 +32,14 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path:'/review',
-                element:<PrivateRouter> <Review></Review></PrivateRouter>
+                path: '/review',
+                element: <Review></Review>
+            },
+            {
+                path: '/addReviewSite/:id',
+                element: <AddReviews></AddReviews>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+
             }
         ]
     }

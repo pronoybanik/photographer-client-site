@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { FaRegEye } from "react-icons/fa";
+import { Link, useLoaderData } from 'react-router-dom';
+import { FaPlus, FaRegEye } from "react-icons/fa";
 
 const Details = () => {
-    const { title, author, image_url, total_view, details, price } = useLoaderData()
+    const { title, author, image_url, total_view, details, price , _id} = useLoaderData()
     return (
         <div className='my-20'>
             
@@ -27,11 +27,13 @@ const Details = () => {
                         </div>
 
                         <div>
-                            <p className='ml-32  flex '><FaRegEye></FaRegEye> {total_view}</p>
+                            <p className='ml-24  flex '><FaRegEye></FaRegEye> {total_view}</p>
                         </div>
 
-                        <div  className='ml-20'>
-                            <button className="btn btn-primary">Listen</button>
+                        <div className='ml-2' >
+                            <button className="btn btn-primary bg-white"><FaPlus></FaPlus>
+                            <Link to={`/addReviewSite/${_id}`}> Add Reviews</Link>
+                            </button>
                         </div>
                     </div>
 
