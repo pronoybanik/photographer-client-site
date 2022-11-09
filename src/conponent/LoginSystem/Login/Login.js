@@ -10,7 +10,9 @@ import { AuthContext } from '../../Pages/AuthProvider/AuthProvider';
 const Login = () => {
     const { loginSystem, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate()
-    // const location = useLocation()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     // const from = location.state?.from?.pathname || '/';
 
@@ -28,12 +30,12 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
-                form.reset('')
-                navigate('/')
+                form.reset('');
+                navigate(from, { replace: true });
                 toast.success("Register successful", {
                     position: "top-center",
                     theme: "light",
-                })
+                });
 
 
             })
@@ -49,7 +51,7 @@ const Login = () => {
                     progress: undefined,
                     theme: "light",
                 });
-            })
+            });
     }
 
     const handleGoogle = () => {
@@ -57,8 +59,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, {replace: true})
             })
-            .catch(error => 
+            .catch(error =>
                 console.error(error)
             )
     }
@@ -93,8 +96,8 @@ const Login = () => {
                             <input type="submit" value="LogIn" className="btn btn-primary bg-white" />
                         </div>
                         <div className="form-control mt-6">
-                                <button className='btn btn-secondary' onClick={handleGoogle}>GooGle Login</button>
-                            </div>
+                            <button className='btn btn-secondary' onClick={handleGoogle}>GooGle Login</button>
+                        </div>
                     </div>
                     <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/register">Sing Up</Link></p>
                 </form>
