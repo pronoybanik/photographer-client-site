@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
-   const item = <>
-   
-    <li><Link to='/'>Home</Link></li>
-                            
-    <li><Link to='/login'>Log In</Link></li>
-    <li><Link to='/register'>Sign up</Link></li>
-   
-   </>
-    
-   
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
+
+    const item = <>
+
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/review'>Review</Link></li>
+        <>
+            {
+                user?.email ?
+                    <>
+                        <li>
+                            <button onClick={handleLogOut}>Log Out</button>
+                        </li>
+                    </>
+                    :
+                    <>
+                        <li><Link to='/login'>Log In</Link></li>
+                        <li><Link to='/register'>Sign up</Link></li>
+                    </>
+            }
+        </>
+    </>
+
+
+
+
 
     return (
         <div>
-            <h2>header page</h2>
+
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -26,7 +50,7 @@ const Header = () => {
                             {item}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className="btn btn-ghost normal-case text-xl"><p className='font-bold'>Adam </p> <p className='text-3xl ml-2 font-bold text-orange-600'>Bird</p> </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -34,7 +58,14 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    {
+                        user?.photoURL?
+                        <>
+                         <img style={{height: '55px'}} className='mask mask-circle' src={user?.photoURL} alt="" />
+                        </>
+                        :
+                        <FaUser></FaUser>
+                    }
                 </div>
             </div>
         </div>

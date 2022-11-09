@@ -15,7 +15,7 @@ const BannerItem = ({slide}) => {
                         </h1>
                     </div>
                     <div className="absolute flex justify-end transform  w-1/2 -translate-y-1/2 left-5  top-2/4">
-                        <p className='text-white' > In photography there is a reality so subtle that it becomes more real than reality </p>
+                        <p className='text-white mt-8' > If you find that your favorite music or your best-loved movie director no longer stirs your imagination, it’s time to turn your attention to the all-time classics: the famous photographers that shook the world. </p>
                     </div>
                     
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">

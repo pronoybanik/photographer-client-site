@@ -27,7 +27,7 @@ const Details = () => {
                         </div>
 
                         <div>
-                            <p className='ml-28 flex '><FaRegEye></FaRegEye> {total_view}</p>
+                            <p className='ml-32  flex '><FaRegEye></FaRegEye> {total_view}</p>
                         </div>
 
                         <div  className='ml-20'>

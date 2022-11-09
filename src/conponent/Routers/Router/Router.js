@@ -4,6 +4,8 @@ import Register from "../../LoginSystem/Register/Register";
 import Details from "../../Pages/Details/Details";
 import Home from "../../Pages/Home/Home";
 import Main from "../../Pages/Main/Main";
+import Review from "../../Pages/Review/Review";
+import PrivateRouter from "../privateRouter/PrivateRouter";
 
 
 const router = createBrowserRouter([
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path:'/review',
+                element: <Review></Review>
             }
         ]
     }
