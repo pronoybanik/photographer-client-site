@@ -32,9 +32,9 @@ const Review = () => {
         }
     }
 
+    // conditional rendering
 
     let add;
-
     if (reviews.length === 0) {
         add = <p className=' font-bold text-2xl'>There Are No review, <br />
             Check out Our Facilities and <br />

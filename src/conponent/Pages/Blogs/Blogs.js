@@ -27,7 +27,7 @@ const Blogs = () => {
            
             </div>
         <div className='border-2 p-4 mt-8'>
-            <h1 className='font-bold'> Main Point</h1>
+            <h1 className='font-bold'>Bullet Point</h1>
             <p>1- That is photographer site</p>
             <p>2- i am use tailwind and daisyUi</p>
             <p>3- jwt are use that site</p>
