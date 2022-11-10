@@ -5,8 +5,8 @@ const ServiceCard = ({ service, }) => {
  
     const {_id, image_url, title, details, price } = service
     return (
-        <div >
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className=''>
+            <div className="card card-compact w-96 bg-base-100 shadow-xl transform motion-safe:hover:scale-110 ">
                 <figure><img className='object-fill h-48 w-96' src={image_url} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>

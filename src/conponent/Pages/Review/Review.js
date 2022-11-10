@@ -12,6 +12,25 @@ const Review = () => {
             .then(data => setReviews(data))
     }, [user?.email])
 
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are You Sure')
+        if (proceed) {
+            fetch(`http://localhost:5000/review/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully')
+                        const remaining = reviews.filter(odr => odr._id !== id)
+                        setReviews(remaining)
+                    }
+                })
+        }
+    }
+
     return (
         <div className='my-12 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-12' >
 
@@ -19,6 +38,7 @@ const Review = () => {
                 reviews.map(review => <ReviewItem
                     key={review._id}
                     review={review}
+                    handleDelete={handleDelete}
                 ></ReviewItem>)
             }
         </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const ReviewItem = ({ review }) => {
-    const { name, message, email, service } = review;
+const ReviewItem = ({ review, handleDelete }) => {
+    const { _id, name, message, email, service } = review;
     const [reviewItem, setReviewItem] = useState([])
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const ReviewItem = ({ review }) => {
     return (
         <div>
 
-            <div className="card card-side bg-base-100 shadow-xl">
+            <div className="card card-side bg-base-100 shadow-xl transform motion-safe:hover:scale-110 ">
                 <figure>
                     {
                         reviewItem?.image_url &&
@@ -27,7 +27,7 @@ const ReviewItem = ({ review }) => {
                     <h4 className='font-bold'>Email: {email}</h4>
                     <p>{message}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary bg-slate-50">delate</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-primary bg-slate-50">delate</button>
                     </div>
                 </div>
             </div>
