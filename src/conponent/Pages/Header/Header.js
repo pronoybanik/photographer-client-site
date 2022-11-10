@@ -15,11 +15,11 @@ const Header = () => {
     const item = <>
 
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/review'>Review</Link></li>
         <>
             {
                 user?.email ?
                     <>
+                        <li><Link to='/review'>Review</Link></li>
                         <li>
                             <button onClick={handleLogOut}>Log Out</button>
                         </li>
@@ -40,9 +40,9 @@ const Header = () => {
 
 
     return (
-        <div>
+        <div className='sticky-top'>
 
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

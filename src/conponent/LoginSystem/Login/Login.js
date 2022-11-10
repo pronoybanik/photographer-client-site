@@ -13,9 +13,6 @@ const Login = () => {
     const location = useLocation()
 
     const from = location.state?.from?.pathname || '/'
-
-    // const from = location.state?.from?.pathname || '/';
-
     const provider = new GoogleAuthProvider()
 
 
@@ -29,9 +26,28 @@ const Login = () => {
         loginSystem(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user);
+
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser);
+
+                //get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('token', data.token)
+                        navigate(from, { replace: true });
+
+                    })
                 form.reset('');
-                navigate(from, { replace: true });
                 toast.success("Register successful", {
                     position: "top-center",
                     theme: "light",
@@ -54,12 +70,33 @@ const Login = () => {
             });
     }
 
+
     const handleGoogle = () => {
         googleLogin(provider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                navigate(from, {replace: true})
+
+
+                const currentUser = {
+                    email: user.email
+                }
+                //get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('token', data.token)
+                        navigate(from, { replace: true });
+
+                    })
+
+                // navigate(from, { replace: true })
             })
             .catch(error =>
                 console.error(error)

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
@@ -8,9 +7,17 @@ const Review = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+       
+        fetch(`http://localhost:5000/review?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setReviews(data))
+            .then(data => {
+                setReviews(data)
+            })
+
     }, [user?.email])
 
 
@@ -32,14 +39,13 @@ const Review = () => {
         }
     }
 
-    // conditional rendering
+    // conditional rendering....
 
     let add;
     if (reviews.length === 0) {
         add = <p className=' font-bold text-2xl'>There Are No review, <br />
             Check out Our Facilities and <br />
-            Give a Review.... And log in
-            <Link className="btn btn-link" to={`/login`}>LogIn</Link>
+            Give a Review
         </p>
     }
 

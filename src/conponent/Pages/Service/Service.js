@@ -3,7 +3,7 @@ import ServiceCard from './ServiceCard/ServiceCard';
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    const [visible, setvisible] = useState(3)
+    const [visible, setVisible] = useState(3)
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
@@ -11,7 +11,7 @@ const Services = () => {
     }, [])
 
     const showMore = () =>{
-        setvisible((preValue) => preValue *3)
+        setVisible((preValue) => preValue *3)
     }
     return (
         <div>

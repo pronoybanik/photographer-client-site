@@ -7,6 +7,7 @@ import Details from "../../Pages/Details/Details";
 import Home from "../../Pages/Home/Home";
 import Main from "../../Pages/Main/Main";
 import Review from "../../Pages/Review/Review";
+import Update from "../../Pages/Update/Update";
 import PrivateRouter from "../privateRouter/PrivateRouter";
 
 
@@ -43,8 +44,14 @@ const router = createBrowserRouter([
 
             },
             {
-                path:'/blogs',
-                element:<Blogs></Blogs>
+                path: '/blogs',
+                element: <Blogs></Blogs>
+            },
+        
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`)
             }
         ]
     }
