@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
@@ -31,9 +32,23 @@ const Review = () => {
         }
     }
 
+
+    let add;
+
+    if (reviews.length === 0) {
+        add = <p className=' font-bold text-2xl'>There Are No review, <br />
+            Check out Our Facilities and <br />
+            Give a Review.... And log in
+            <Link className="btn btn-link" to={`/login`}>LogIn</Link>
+        </p>
+    }
+
+
     return (
         <div className='my-12 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-12' >
-
+            {
+                add
+            }
             {
                 reviews.map(review => <ReviewItem
                     key={review._id}
@@ -41,6 +56,7 @@ const Review = () => {
                     handleDelete={handleDelete}
                 ></ReviewItem>)
             }
+
         </div>
     );
 };

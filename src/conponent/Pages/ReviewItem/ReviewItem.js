@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ReviewItem = ({ review, handleDelete }) => {
     const { _id, name, message, email, service } = review;
@@ -10,10 +11,12 @@ const ReviewItem = ({ review, handleDelete }) => {
             .then(data => setReviewItem(data))
     }, [service])
 
+    
     return (
         <div>
 
             <div className="card card-side bg-base-100 shadow-xl transform motion-safe:hover:scale-110 ">
+               {/* <button onClick={add}></button> */}
                 <figure>
                     {
                         reviewItem?.image_url &&
