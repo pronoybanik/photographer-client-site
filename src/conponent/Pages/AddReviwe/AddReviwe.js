@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const AddReviews = () => {
@@ -22,7 +23,7 @@ const AddReviews = () => {
             message,
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://y-pronoybanik.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -33,6 +34,10 @@ const AddReviews = () => {
             .then(data => {
                 console.log(data)
                 form.reset('')
+                toast.success("Add Reviews", {
+                    position: "top-center",
+                    theme: "light",
+                });
             })
             .catch(err => console.log(err))
     }

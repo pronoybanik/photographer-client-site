@@ -10,7 +10,7 @@ const Update = () => {
     const handleAddDataUser = event => {
         event.preventDefault()
         // console.log(user);
-        fetch(`http://localhost:5000/review/${updateData._id}`, {
+        fetch(`https://y-pronoybanik.vercel.app/review/${updateData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

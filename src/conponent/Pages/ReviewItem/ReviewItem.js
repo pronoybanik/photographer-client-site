@@ -7,9 +7,10 @@ const ReviewItem = ({ review, handleDelete }) => {
     const [reviewItem, setReviewItem] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://y-pronoybanik.vercel.app/services/${service}`)
             .then(res => res.json())
             .then(data => setReviewItem(data))
+            
     }, [service])
 
 
@@ -33,12 +34,13 @@ const ReviewItem = ({ review, handleDelete }) => {
                     <div className="card-actions justify-end">
                         <button onClick={() => handleDelete(_id)} className="btn btn-primary bg-slate-50"><FaTrashAlt></FaTrashAlt></button>
                     </div>
-                    <div>
+
+                    {/* <div>
                         <Link to={`/update/${_id}`}>
 
                             <button >update</button>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

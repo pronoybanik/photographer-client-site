@@ -6,7 +6,7 @@ import image from '../../../image/ilustracao-do-conceito-de-login_114360-739.web
 import { AuthContext } from '../../Pages/AuthProvider/AuthProvider';
 
 
-const Register = () => {
+const Register = () => { 
     const { createUser, googleLogin } = useContext(AuthContext)
     const provider = new GoogleAuthProvider();
 
@@ -59,15 +59,15 @@ const Register = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200 my-12 rounded-xl">
+            <div className="hero  bg-base-200 my-12 rounded-xl py-4">
                 <div className="hero-content flex-col lg:flex-row  ">
                     <div className="text-center lg:text-left ">
                         <img className='w-2/3' src={image} alt="" />
                     </div>
 
-                    <form onSubmit={handleSignUp} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
+                    <form onSubmit={handleSignUp} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10 mr-6">
                         <div className="card-body">
-                            <h1 className="text-5xl text-center font-bold">SIGN UP</h1>
+                            <h1 className="text-5xl text-center font-bold font-serif ">SIGN UP</h1>
 
                             <div className="form-control">
                                 <label className="label">
@@ -95,7 +95,7 @@ const Register = () => {
                                 <input type="submit" value="Sign Up" className="btn btn-primary bg-white" />
                             </div>
                             <div className="form-control mt-6">
-                                <button className='btn btn-secondary' onClick={handleGoogle}>GooGle Register</button>
+                                <button className='btn btn-outline' onClick={handleGoogle}>GooGle Register</button>
                             </div>
                         </div>
                         <p className='text-center'>You Have a Account <Link className='text-orange-600 font-bold' to="/login">Log IN</Link></p>

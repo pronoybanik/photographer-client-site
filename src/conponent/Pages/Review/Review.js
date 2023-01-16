@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
@@ -7,8 +8,12 @@ const Review = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-       
-        fetch(`http://localhost:5000/review?email=${user?.email}`, {
+
+        if (!user?.email) {
+            return;
+        }
+
+        fetch(`https://y-pronoybanik.vercel.app/review?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -24,14 +29,17 @@ const Review = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are You Sure')
         if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://y-pronoybanik.vercel.app/review/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully')
+                        toast.success('Deleted successfully', {
+                            position: "top-center",
+                            theme: "light",
+                        })
                         const remaining = reviews.filter(odr => odr._id !== id)
                         setReviews(remaining)
                     }
@@ -56,7 +64,7 @@ const Review = () => {
                 add
             }
             {
-                reviews.map(review => <ReviewItem
+                reviews?.map(review => <ReviewItem
                     key={review._id}
                     review={review}
                     handleDelete={handleDelete}

@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRouter><Details></Details></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-pronoybanik.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -40,18 +40,18 @@ const router = createBrowserRouter([
             {
                 path: '/addReviewSite/:id',
                 element: <AddReviews></AddReviews>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-pronoybanik.vercel.app/services/${params.id}`)
 
             },
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
             },
-        
+
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-pronoybanik.vercel.app/review/${params.id}`)
             }
         ]
     }

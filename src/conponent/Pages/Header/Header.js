@@ -12,26 +12,29 @@ const Header = () => {
             .catch()
     }
 
+    // https://y-pronoybanik.vercel.app
+    // https://assignmests-11.web.app/review
+
     const item = <>
 
-        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/' className='font-serif text-lg  font-semibold'>Home</Link></li>
+        <li><Link to='/blogs'  className='font-serif text-lg  font-semibold'>Blogs</Link></li>
         <>
             {
                 user?.email ?
                     <>
-                        <li><Link to='/review'>Review</Link></li>
+                        <li><Link to='/review'  className='font-serif text-lg  font-semibold'>Review</Link></li>
                         <li>
-                            <button onClick={handleLogOut}>Log Out</button>
+                            <button onClick={handleLogOut}  className='font-serif text-lg btn btn-outline btn-info text-white font-semibold'>Log Out</button>
                         </li>
                     </>
                     :
                     <>
-                        <li><Link to='/login'>Log In</Link></li>
-                        <li><Link to='/register'>Sign up</Link></li>
+                        <li><Link to='/login'  className='font-serif text-lg  font-semibold'>Log In</Link></li>
+                        <li><Link to='/register'  className='font-serif text-lg  font-semibold'>Sign up</Link></li>
                     </>
             }
         </>
-        <li><Link to='/blogs'>Blogs</Link></li>
 
     </>
 
@@ -40,7 +43,7 @@ const Header = () => {
 
 
     return (
-        <div className='sticky-top'>
+        <div className='sticky top-0 z-50'>
 
             <div className="navbar bg-base-100 ">
                 <div className="navbar-start">
