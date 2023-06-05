@@ -26,7 +26,7 @@ const Banner = () => {
             id: 3,
             next: 1
         },
-        
+
     ]
     return (
         <div>

@@ -5,7 +5,7 @@ import router from './conponent/Routers/Router/Router';
 
 function App() {
   return (
-    <div className='max-w-screen-xl mx-auto'>
+    <div className='max-w-screen-xl mx-auto font-serif'>
       <RouterProvider router={router}></RouterProvider>
       <ToastContainer></ToastContainer>
     </div>
