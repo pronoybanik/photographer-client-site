@@ -8,7 +8,7 @@ const OurPhotoGrafer = () => {
                         <div className="grid p-6 bg-gray-200 rounded place-content-center sm:p-8">
                             <div className="max-w-md mx-auto text-center lg:text-left">
                                 <header>
-                                    <h2 className="text-xl font-bold text-gray-900 sm:text-2xl uppercase">our photographer</h2>
+                                    <h2 className="text-xl font-bold text-gray-900 sm:text-2xl uppercase">our Best photo grapher</h2>
 
                                     <p className="mt-4 text-gray-500">
                                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
