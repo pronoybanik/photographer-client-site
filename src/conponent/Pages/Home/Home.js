@@ -22,7 +22,7 @@ const Home = () => {
                             New image  Collection
                         </h2>
 
-                       
+
                     </header>
 
                     <ul className="grid grid-cols-1 gap-4 mt-8 lg:grid-cols-3">
@@ -96,10 +96,86 @@ const Home = () => {
                 </div>
             </section>
             <BestImages></BestImages>
+            <section>
+                <div
+                    class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8"
+                >
+                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+                        <div
+                            class="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
+                        >
+                            <img
+                                alt="Party"
+                                src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                                class="absolute inset-0 h-full w-full object-cover"
+                            />
+                        </div>
+
+                        <div class="lg:py-24">
+                            <h2 class="text-3xl font-bold sm:text-4xl uppercase">our new event <br /> 50% off</h2>
+
+                            <p class="mt-4 text-gray-600">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic
+                                atque tenetur quis eius quos ea neque sunt, accusantium soluta minus
+                                veniam tempora deserunt? Molestiae eius quidem quam repellat.
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <OurPhotoGrafer></OurPhotoGrafer>
             <Faq></Faq>
+
             <ContactUs></ContactUs>
             <Reviews></Reviews>
+            <section
+
+                className="mt-2 py-12 font-serif mb-14"
+                style={{
+                    background: `url(${'https://images.pexels.com/photos/1055613/pexels-photo-1055613.jpeg?auto=compress&cs=tinysrgb&w=1600'})`,
+                    backgroundSize: 'cover'
+                }}
+            >
+                <div className="text-center mb-10 ">
+                    <h2 className="text-info font-bold  mb-2 text-xl">Contact Us</h2>
+                    <h2 className="text-2xl text-white uppercase">Add Feedback</h2>
+                </div>
+                <form >
+                    <div className=" flex  items-center justify-center mb-2">
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Name"
+                            className="input input-bordered w-full max-w-xs  "
+                        />
+                    </div>
+                    <div className="flex  items-center justify-center mb-2">
+                        <input
+                            name="email"
+                            type="text"
+                            placeholder="Email"
+                            className="input input-bordered w-full max-w-xs"
+                        />
+                    </div>
+
+                    <div className="flex  items-center justify-center">
+                        <textarea
+                            name="bio"
+                            className="textarea textarea-bordered w-80 "
+                            placeholder="Bio"
+                        ></textarea>
+                    </div>
+                    <div className="flex  items-center justify-center mt-4">
+                        <button className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">
+                            button
+                        </button>
+                    </div>
+                </form>
+            </section>
+
 
         </div>
     );

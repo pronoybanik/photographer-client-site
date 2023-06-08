@@ -80,12 +80,12 @@ export default function BestImages() {
                   </div>
                 </div>
   
-                <a
-                  href="#"
+                <div
+                  
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
                 >
                  see details
-                </a>
+                </div>
               </div>
             </div>
           </div>
